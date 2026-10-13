@@ -1,0 +1,39 @@
+output:
+  experiment_name: sfcnn_Ptx52dBm
+
+data:
+  path: data/sfcnn_Ptx52dBm.mat
+  dataset_type: signal_fusion
+  mat_data_key: training_dataset
+  val_split: 0.1
+  test_split: 0.1
+
+model:
+  name: SignalFusionNetLite
+  params:
+    Nc: 3276
+    Ns: 1
+    conv_channels: [64, 128, 256, 256, 256]
+    pool_size: 4
+    fc_dims: [256, 128, 84]
+    dropout: 0.0
+
+training:
+  device: cuda:0
+  loss_function:
+    name: MSELoss
+  optimizer: AdamW
+  learning_rate: 0.002
+  weight_decay: 0.0001
+  batch_size: 256
+  num_workers: 8
+  epochs: 150
+  scheduler:
+    type: ReduceLROnPlateau
+    factor: 0.5
+    patience: 5
+  early_stopping:
+    patience: 15
+
+env:
+  seed: 42

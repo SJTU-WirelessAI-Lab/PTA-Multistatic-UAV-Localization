@@ -1,0 +1,38 @@
+# Generated data, results and models
+simulation/results/
+simulation/figures/
+simulation/models/
+model_training/data/
+model_training/saved_models/
+model_training/logs/
+*.mat
+*.onnx
+*.pth
+*.pt
+*.h5
+*.png
+*.log
+
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Credentials and local settings
+.env
+.env.*
+*.pem
+*.key
+.netrc
+
+# Editors, agents and OS files
+.vscode/
+.idea/
+.claude/
+.codex/
+.agents/
+*.asv
+*.swp
+.DS_Store
+Thumbs.db
